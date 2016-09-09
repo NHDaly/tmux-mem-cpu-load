@@ -18,6 +18,10 @@
 # The directory where this plugin is located.
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Add the plugin directory to the tmux path so that users can reference
+# tmux-mem-cpu-load directly from `.tmux.conf`.
+tmux set-environment PATH "$PATH:$CURRENT_DIR"
+
 pushd $CURRENT_DIR #Pushd to the directory where this plugin is located.
 cmake .
 make
